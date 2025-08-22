@@ -1,0 +1,13 @@
+import streamlit as st
+
+st.set_page_config(page_title="Gerador de Apresentações de Publicidade - NWE")
+
+st.title("📊 Gerador de Apresentações de Publicidade - NWE")
+st.write("Faça upload das imagens das campanhas publicitárias e gere automaticamente uma apresentação com gráficos e insights.")
+
+uploaded_files = st.file_uploader("Envie as imagens das campanhas", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
+
+if uploaded_files:
+    st.success(f"{len(uploaded_files)} imagem(ns) carregada(s). Clique abaixo para gerar a apresentação.")
+    if st.button("📄 Gerar Apresentação"):
+        st.write("🔧 Em breve: geração automática de slides com insights.")
