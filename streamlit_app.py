@@ -30,10 +30,14 @@ if uploaded_files:
             slide = prs.slides.add_slide(content_slide_layout)
             slide.shapes.title.text = f"Campanha: {img_file.name}"
             image_path = os.path.join("temp", img_file.name)
-            with open(image_path, "wb") as f:
-                f.write(img_file.getbuffer())
-            slide.shapes.add_picture(image_path, Inches(1), Inches(1.5), height=Inches(4.5))
+           import tempfile
 
+temp_dir = tempfile.gettempdir()
+image_path = os.path.join(temp_dir, img_file.name)
+
+with open(image_path, "wb") as f:
+    f.write(img_file.getbuffer())
+           
         # Salvar apresentação
         output_path = "Apresentacao_Publicidade_NWE.pptx"
         prs.save(output_path)
